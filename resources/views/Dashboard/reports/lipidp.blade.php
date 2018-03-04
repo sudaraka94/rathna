@@ -41,6 +41,8 @@
 <table class="table table-responsive" style="width: 70%;
     align-self: center;
     margin-left: 100px;
+    font-size: 9px;
+    font-weight: 600;
 " cellpadding="4">
     <tr style="background-color: lightgrey;">
         <th style="font-weight: 500;">LIPID<br>FRACTIONS</th>
