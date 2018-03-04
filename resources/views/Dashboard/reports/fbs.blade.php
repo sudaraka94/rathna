@@ -7,7 +7,7 @@
     </tr>
 
         <tr style="height: 70px">
-            <td>F.B.S<br>(Fasting Blood Sugar)</td>
+            <td>F.B.S</td>
             <td>{{$det->fbs}}</td>
             <td>mg/dl</td>
             <td>75.0-115.0</td>
