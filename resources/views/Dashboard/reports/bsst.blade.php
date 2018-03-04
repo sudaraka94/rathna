@@ -21,7 +21,7 @@
             <td></td>
         </tr>
     @endif
-    <tr>
+    <tr style="height: 70px">
         <td>Post Breakfast</td>
         <td>{{$det->post_breakfast}}</td>
         <td>mg/dl</td>
@@ -35,7 +35,7 @@
             <td></td>
         </tr>
     @endif
-    <tr>
+    <tr style="height: 70px">
         <td>Post Lunch</td>
         <td>{{$det->post_lunch}}</td>
         <td>mg/dl</td>
