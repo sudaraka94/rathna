@@ -38,8 +38,10 @@
     </tr>
 
 </table>
-<br><br>
-<table class="table table-responsive">
+<table class="table table-responsive" style="width: 70%;
+    align-self: center;
+    margin-left: 100px;
+" cellpadding="4">
     <tr style="background-color: lightgrey;">
         <th style="font-weight: 500;">LIPID<br>FRACTIONS</th>
         <th style="font-weight: 500;">PROGNOSTICALLY<br>FAVORABLE</th>
