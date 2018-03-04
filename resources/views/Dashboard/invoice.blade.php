@@ -120,7 +120,7 @@
             </div>
         </div>
         <!-- /.row -->
-        <div class="container" style="padding: 30px;margin-top: -40px">
+        <div class="container" style="@if($report->type=='10') padding: 10px @else padding: 30px @endif ;margin-top: -40px">
             <h3 align="center" style="margin-right: 256px">{{$report->getType()}}</h3>
         </div>
         <!-- Table row -->

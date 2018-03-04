@@ -15,7 +15,7 @@
                 <option>Weakly Positive</option>
             </datalist>
         </div>
-    @if($req->input('type')=='11')
+    @if($req->input('type')=='9')
 
         <div class="form-group">
             <label for="hcg">* Please Repeat On :</label>
