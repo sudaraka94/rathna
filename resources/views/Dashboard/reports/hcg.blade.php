@@ -13,7 +13,7 @@
             {{--<td></td>--}}
         {{--</tr>--}}
     {{--@endif--}}
-    @if($det->repeat!=null)
+    @if($det->repeat!=null & $report->type!='10')
         <tr>
             <td>* Please Repeat On</td>
             <td>{{$det->repeat}}</td>
@@ -21,7 +21,7 @@
     @endif
     @if($report->type=='10')
     <tr>
-        <td><h4>Urine Full Report (U.F.R)</h4></td>
+        <td><h4 class="invoice-font">Urine Full Report (U.F.R)</h4></td>
         <td></td>
     </tr>
     <tr>

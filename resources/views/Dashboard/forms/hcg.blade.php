@@ -15,6 +15,8 @@
                 <option>Weakly Positive</option>
             </datalist>
         </div>
+    @if($req->input('type')=='11')
+
         <div class="form-group">
             <label for="hcg">* Please Repeat On :</label>
             <div class="input-group date">
@@ -29,7 +31,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         @endif
-    </div>
+        </div>
+    @endif
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
