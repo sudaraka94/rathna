@@ -10,6 +10,11 @@
         <td style="padding: 5px">Pregnancy Test (H.C.G)</td>
         <td style="padding: 5px">{{$det->hcg}}</td>
     </tr>
+    @if($report->type=='9')
+        <tr style="height: 100px">
+
+        </tr>
+    @endif
     {{--@if($det->hcg=="Positive")--}}
         {{--<tr>--}}
             {{--<td>ඔබ ප්‍රදේශයේ පවුල් සෞඛ්‍ය සෙවා නිලධාරිණිය අමතන්න</td>--}}
