@@ -1,4 +1,6 @@
 <table class="weight table table-responsive">
+    <col width="40%">
+    <col width="60%">
     <tr>
         <td>H.W.O</td>
         <td>{{$det->hwo}}</td>
@@ -8,7 +10,7 @@
         <td>{{$det->rwo}}</td>
     </tr>
     <tr>
-        <td><h4 class="" a>Other Data</h4></td>
+        <td><h4 class="invoice-font">Other Data</h4></td>
         <td></td>
     </tr>
     <tr>

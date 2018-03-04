@@ -12,7 +12,21 @@ class CreateSfr extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('sfr',function (Blueprint $table){
+            $table->increments('report_id');
+            $table->string('hwo');
+            $table->string('rwo');
+            $table->string('ameba');
+            $table->string('cysts');
+            $table->string('clc');
+            $table->string('s_rbc');
+            $table->string('s_pus');
+            $table->string('mucus');
+            $table->string('macrophags');
+            $table->string('consistens');
+            $table->string('r_substances');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +36,6 @@ class CreateSfr extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('sfr');
     }
 }
