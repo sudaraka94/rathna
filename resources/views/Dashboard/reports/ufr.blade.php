@@ -32,7 +32,7 @@
         <td class="table-reduce">{{$det->urobilino}}</td>
     </tr>
     <tr>
-        <td style="padding: 0px"><h4 class="invoice-font">Deposits</h4></td>
+        <td style="padding: 0px"><h5 class="invoice-font">Deposits</h5></td>
         <td></td>
     </tr>
     <tr>
