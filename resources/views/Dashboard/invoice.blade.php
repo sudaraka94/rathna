@@ -89,6 +89,9 @@
             font-variant: normal;
             line-height: 2;
         }
+        .table-reduce {
+            padding: 5px !important;
+        }
     </style>
 </head>
 <body onload="window.print();">

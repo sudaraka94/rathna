@@ -1,63 +1,63 @@
 <table class="weight table table-responsive">
     <tr>
-        <td>Appearance</td>
-        <td>{{$det->appearance}}</td>
+        <td class="table-reduce">Appearance</td>
+        <td class="table-reduce">{{$det->appearance}}</td>
     </tr>
     <tr>
-        <td>S .G</td>
-        <td>{{$det->sg}}</td>
+        <td class="table-reduce">S .G</td>
+        <td class="table-reduce">{{$det->sg}}</td>
     </tr>
     <tr>
-        <td>Reaction</td>
-        <td>{{$det->reaction}}</td>
+        <td class="table-reduce">Reaction</td>
+        <td class="table-reduce">{{$det->reaction}}</td>
     </tr>
     <tr>
-        <td>Albumen</td>
-        <td>{{$det->albumen}}</td>
+        <td class="table-reduce">Albumen</td>
+        <td class="table-reduce">{{$det->albumen}}</td>
     </tr>
     <tr>
-        <td>Sugar</td>
-        <td>{{$det->sugar}}</td>
+        <td class="table-reduce">Sugar</td>
+        <td class="table-reduce">{{$det->sugar}}</td>
     </tr>
     <tr>
-        <td>Acetone</td>
-        <td>{{$det->acetone}}</td>
+        <td class="table-reduce">Acetone</td>
+        <td class="table-reduce">{{$det->acetone}}</td>
     </tr>
     <tr>
-        <td>Bile</td>
-        <td>{{$det->bile}}</td>
+        <td class="table-reduce">Bile</td>
+        <td class="table-reduce">{{$det->bile}}</td>
     </tr>
     <tr>
-        <td>Urobilino gen</td>
-        <td>{{$det->urobilino}}</td>
+        <td class="table-reduce">Urobilino gen</td>
+        <td class="table-reduce">{{$det->urobilino}}</td>
     </tr>
     <tr>
-        <td><h4>Deposits</h4></td>
+        <td style="padding: 0px"><h4 class="invoice-font">Deposits</h4></td>
         <td></td>
     </tr>
     <tr>
-        <td>Pus Cells</td>
-        <td>{{$det->u_pus}}</td>
+        <td class="table-reduce">Pus Cells</td>
+        <td class="table-reduce">{{$det->u_pus}}</td>
     </tr>
     <tr>
-        <td>R.B.Cs</td>
-        <td>{{$det->u_rbc}}</td>
+        <td class="table-reduce">R.B.Cs</td>
+        <td class="table-reduce">{{$det->u_rbc}}</td>
     </tr>
     <tr>
-        <td>Fpi Cells</td>
-        <td>{{$det->fpi}}</td>
+        <td class="table-reduce">Fpi Cells</td>
+        <td class="table-reduce">{{$det->fpi}}</td>
     </tr>
     <tr>
-        <td>Cast</td>
-        <td>{{$det->cast}}</td>
+        <td class="table-reduce">Cast</td>
+        <td class="table-reduce">{{$det->cast}}</td>
     </tr>
     <tr>
-        <td>Organized Diposits</td>
-        <td>{{$det->o_deposit}}</td>
+        <td class="table-reduce">Organized Diposits</td>
+        <td class="table-reduce">{{$det->o_deposit}}</td>
     </tr>
     <tr>
-        <td>Crystals</td>
-        <td>{{$det->crystals}}</td>
+        <td class="table-reduce">Crystals</td>
+        <td class="table-reduce">{{$det->crystals}}</td>
     </tr>
 </table>
 
