@@ -42,6 +42,8 @@ class Report extends Model
             return lipidp::where('report_id',$this->id)->first();
         }else if($this->type=='13'|$this->type=='14'|$this->type=='15'){
             return s_creatinine::where('report_id',$this->id)->first();
+        }else if($this->type=='16'|$this->type=='17'|$this->type=='18'|$this->type=='19'){
+            return glucose::where('report_id',$this->id)->first();
         }
     }
 
