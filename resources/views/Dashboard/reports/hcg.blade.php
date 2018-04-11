@@ -1,5 +1,5 @@
 
-<table class="weight table table-responsive">
+<table class="weight table table-responsive" style="font-size: 12px">
     <col width="40%">
     <col width="60%">
     <tr style="background-color: lightgrey;">
@@ -29,7 +29,7 @@
     @endif
     @if($report->type=='10')
     <tr>
-        <td style="padding: 5px"><h4 class="invoice-font" style="margin: 1px">Urine Full Report (U.F.R)</h4></td>
+        <td style="padding: 5px"><h5 class="invoice-font" style="margin: 1px">Urine Full Report (U.F.R)</h5></td>
         <td style="padding: 5px"></td>
     </tr>
     <tr>
@@ -65,7 +65,7 @@
         <td style="padding: 5px">{{$det->urobilino}}</td>
     </tr>
     <tr>
-        <td style="padding: 5px"><h4 class="invoice-font" style="margin: 1px">Deposits</h4></td>
+        <td style="padding: 5px"><h5 class="invoice-font" style="margin: 1px">Deposits</h5></td>
         <td style="padding: 5px"></td>
     </tr>
     <tr>
