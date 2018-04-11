@@ -66,6 +66,18 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Serum Creatinine & Blood Urea'
         ]);
+        DB::table('type')->insert([
+            'type'=>'GLUCOSE CONCENTRATION TEST'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'ONE STAGE FASTING (OGCT)'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'ORAL GLUCOSE TOLERANCE TEST (OGTT)'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'ORAL GLUCOSE TOLERANCE TEST (OGTT) - 5 samples'
+        ]);
 
     }
 }

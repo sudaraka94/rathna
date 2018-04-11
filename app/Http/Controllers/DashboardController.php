@@ -10,6 +10,7 @@ use App\lipidp;
 use App\ufr;
 use App\Report;
 use App\s_creatinine;
+use App\glucose;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -169,17 +170,31 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$lipidp);
             }else if($request->input('type')==13|$request->input('type')==14|$request->input('type')==15){
-                $lipidp=new s_creatinine;
-                $lipidp->report_id=$report->id;
-                $lipidp->s_creatinine=$request->input('s_creatinine');
-                $lipidp->egfr=$request->input('egfr');
-                $lipidp->b_urea=$request->input('b_urea');
+                $s_creatinine=new s_creatinine;
+                $s_creatinine->report_id=$report->id;
+                $s_creatinine->s_creatinine=$request->input('s_creatinine');
+                $s_creatinine->egfr=$request->input('egfr');
+                $s_creatinine->b_urea=$request->input('b_urea');
 
-                if(!$lipidp->save()){
+                if(!$s_creatinine->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
-                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$lipidp);
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$s_creatinine);
+            }else if($request->input('type')==16|$request->input('type')==17|$request->input('type')==18|$request->input('type')==19){
+                $glucose=new glucose;
+                $glucose->report_id=$report->id;
+                $glucose->f_b_sugar=$request->input('f_b_sugar');
+                $glucose->half_fasting_b_sugar=$request->input('half_fasting_b_sugar');
+                $glucose->one_b_sugar=$request->input('one_b_sugar');
+                $glucose->one_half_fasting_b_sugar=$request->input('one_half_fasting_b_sugar');
+                $glucose->one_fasting_b_sugar=$request->input('one_fasting_b_sugar');
+
+                if(!$glucose->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$glucose);
             }
         }
     }
@@ -235,7 +250,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$fbs);
             }else if($request->input('type')==7 or $request->input('type')==8){
-                $ufr=new ufr;
+                $ufr=ufr::where('report_id',$request->input('id'))->first();
                 $ufr->report_id=$report->id;
                 $ufr->appearance=$request->input('appearance');
                 $ufr->sg=$request->input('sg');
@@ -269,7 +284,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ufr);
             }else if($request->input('type')==9 or $request->input('type')==10){
-                $hcg=new hcg;
+                $hcg=hcg::where('report_id',$request->input('id'))->first();
                 $hcg->report_id=$report->id;
                 $hcg->hcg=$request->input('hcg');
                 $hcg->repeat=$request->input('repeat');
@@ -294,7 +309,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hcg);
             }else if($request->input('type')==11){
-                $blood_group=new blood_group;
+                $blood_group=blood_group::where('report_id',$request->input('id'))->first();
                 $blood_group->report_id=$report->id;
                 $blood_group->group=$request->input('group');
 
@@ -304,7 +319,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$blood_group);
             }else if($request->input('type')==12){
-                $lipidp=new lipidp;
+                $lipidp=lipidp::where('report_id',$request->input('id'))->first();
                 $lipidp->report_id=$report->id;
                 $lipidp->c_total=$request->input('c_total');
                 $lipidp->c_hdl=$request->input('c_hdl');
@@ -318,7 +333,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$lipidp);
             }else if($request->input('type')==13|$request->input('type')==14|$request->input('type')==15){
-                $lipidp=new s_creatinine;
+                $lipidp=s_creatinine::where('report_id',$request->input('id'))->first();
                 $lipidp->report_id=$report->id;
                 $lipidp->s_creatinine=$request->input('s_creatinine');
                 $lipidp->egfr=$request->input('egfr');
@@ -329,6 +344,20 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$lipidp);
+            }else if($request->input('type')==16|$request->input('type')==17|$request->input('type')==18|$request->input('type')==19){
+                $glucose=glucose::where('report_id',$request->input('id'))->first();;
+                $glucose->report_id=$report->id;
+                $glucose->f_b_sugar=$request->input('f_b_sugar');
+                $glucose->half_fasting_b_sugar=$request->input('half_fasting_b_sugar');
+                $glucose->one_b_sugar=$request->input('one_b_sugar');
+                $glucose->one_half_fasting_b_sugar=$request->input('one_half_fasting_b_sugar');
+                $glucose->one_fasting_b_sugar=$request->input('one_fasting_b_sugar');
+
+                if(!$glucose->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$glucose);
             }
         }
     }
