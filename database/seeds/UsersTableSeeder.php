@@ -78,6 +78,18 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'ORAL GLUCOSE TOLERANCE TEST (OGTT) - 5 samples'
         ]);
+        DB::table('type')->insert([
+            'type'=>'Post parandial Blood Sugar'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Random Blood Sugar'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Post parandial Blood Sugar ( 3 Samples )'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Urine Sugar & Urine Albumen'
+        ]);
 
     }
 }

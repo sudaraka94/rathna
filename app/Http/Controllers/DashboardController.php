@@ -11,6 +11,7 @@ use App\ufr;
 use App\Report;
 use App\s_creatinine;
 use App\glucose;
+use App\ppbs;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -195,6 +196,20 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$glucose);
+            }else if($request->input('type')==20|$request->input('type')==21|$request->input('type')==22|$request->input('type')==23){
+                $ppbs=new ppbs;
+                $ppbs->report_id=$report->id;
+                $ppbs->ppbs=$request->input('ppbs');
+                $ppbs->rbs=$request->input('rbs');
+                $ppbs->ppbs_p_breakfast=$request->input('ppbs_p_breakfast');
+                $ppbs->ppbs_p_lunch=$request->input('ppbs_p_lunch');
+                $ppbs->ppbs_p_dinner=$request->input('ppbs_p_dinner');
+
+                if(!$ppbs->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ppbs);
             }
         }
     }
@@ -358,6 +373,20 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$glucose);
+            }else if($request->input('type')==20|$request->input('type')==21|$request->input('type')==22|$request->input('type')==23){
+                $ppbs=ppbs::where('report_id',$request->input('id'))->first();;
+                $ppbs->report_id=$report->id;
+                $ppbs->ppbs=$request->input('ppbs');
+                $ppbs->rbs=$request->input('rbs');
+                $ppbs->ppbs_p_breakfast=$request->input('ppbs_p_breakfast');
+                $ppbs->ppbs_p_lunch=$request->input('ppbs_p_lunch');
+                $ppbs->ppbs_p_dinner=$request->input('ppbs_p_dinner');
+
+                if(!$ppbs->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ppbs);
             }
         }
     }

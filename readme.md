@@ -11,4 +11,5 @@ Report checklist
     7. Create report template
     8. Modify view report
     9. Modify invoice
+    10.Modify Report object
     

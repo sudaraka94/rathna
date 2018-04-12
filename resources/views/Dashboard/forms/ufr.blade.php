@@ -29,16 +29,18 @@
             <label for="reaction">Reaction</label>
             <input type="reaction" @if($req_old->reaction)value={{$req_old->reaction}}@endif name="reaction" class="form-control" id="reaction" placeholder="">
         </div>
-        <label for="albumen">Albumen</label>
-        <input type="text" @if($req_old->albumen)value={{$req_old->albumen}}@endif  name="albumen" class="form-control" id="albumen"  list="albumen_set">
-        <datalist id="albumen_set">
-            <option>nil</option>
-            <option>Trace</option>
-            <option>Faint Trace</option>
-            <option>+</option>
-            <option>++</option>
-            <option>+++</option>
-        </datalist>
+        <div class="form-group">
+            <label for="albumen">Albumen</label>
+            <input type="text" @if($req_old->albumen)value={{$req_old->albumen}}@endif  name="albumen" class="form-control" id="albumen"  list="albumen_set">
+            <datalist id="albumen_set">
+                <option>nil</option>
+                <option>Trace</option>
+                <option>Faint Trace</option>
+                <option>+</option>
+                <option>++</option>
+                <option>+++</option>
+            </datalist>
+        </div>
 
         <div class="form-group">
             <label for="sugar">Sugar</label>

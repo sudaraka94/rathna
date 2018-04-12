@@ -147,6 +147,8 @@
                     @include('Dashboard.reports.s_creatinine')
                 @elseif($report->type=='16'|$report->type=='17'|$report->type=='18'|$report->type=='19')
                     @include('Dashboard.reports.glucose_concentration')
+                @elseif($report->type=='20'|$report->type=='21'|$report->type=='22'|$report->type=='23')
+                    @include('Dashboard.reports.ppbs')
                 @endif
             </div>
             <!-- /.col -->

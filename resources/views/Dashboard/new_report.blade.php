@@ -56,6 +56,8 @@
                     @include("Dashboard.forms.s_creatinine")
                 @elseif($req->input('type')=="16" | $req->input('type')=="17" | $req->input('type')=="18" | $req->input('type')=="19")
                     @include("Dashboard.forms.glucose_concentration")
+                @elseif($req->input('type')=="20" | $req->input('type')=="21" | $req->input('type')=="22" | $req->input('type')=="23")
+                    @include("Dashboard.forms.ppbs")
                 @endif
         </div>
     </div>
