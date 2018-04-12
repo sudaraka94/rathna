@@ -48,6 +48,8 @@ class Report extends Model
             return ppbs::where('report_id',$this->id)->first();
         }else if($this->type=='24'){
             return u_culture::where('report_id',$this->id)->first();
+        }else if($this->type=='25' | $this->type=='26' | $this->type=='27' | $this->type=='28' | $this->type=='29' | $this->type=='30' | $this->type=='31' | $this->type=='32' | $this->type=='33' | $this->type=='34' | $this->type=='35' | $this->type=='36' | $this->type=='37'){
+            return serum::where('report_id',$this->id)->first();
         }
     }
 

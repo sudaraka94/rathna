@@ -151,6 +151,8 @@
                     @include('Dashboard.reports.ppbs')
                 @elseif($report->type=='24')
                     @include('Dashboard.reports.u_culture')
+                @elseif($report->type=='25' | $report->type=='26' | $report->type=='27' | $report->type=='28' | $report->type=='29' | $report->type=='30' | $report->type=='31' | $report->type=='32' | $report->type=='33' | $report->type=='34' | $report->type=='35' | $report->type=='36' | $report->type=='37')
+                    @include('Dashboard.reports.serum')
                 @endif
             </div>
             <!-- /.col -->

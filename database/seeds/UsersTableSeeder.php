@@ -93,6 +93,45 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'URINE FOR CULTURE AND ABST'
         ]);
+        DB::table('type')->insert([
+            'type'=>'E.S.R'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'HIV 1 & 2 ANTIBODIES'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Ionized Calcium'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Malaria Parasites'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Platelets'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Amylase'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Bilirubin'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Calcium'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Gamma G.T'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'TROPONIN I'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Urine Microalbumin'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'V.D.R.L'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Potassium'
+        ]);
 
     }
 }

@@ -60,6 +60,8 @@
                     @include("Dashboard.forms.ppbs")
                 @elseif($req->input('type')=="24")
                     @include("Dashboard.forms.u_culture")
+                @elseif($req->input('type')=="25"| $req->input('type')=="26"| $req->input('type')=="27"| $req->input('type')=="28"| $req->input('type')=="29"| $req->input('type')=="30"| $req->input('type')=="31"| $req->input('type')=="32"| $req->input('type')=="33"| $req->input('type')=="34"| $req->input('type')=="35"| $req->input('type')=="36"| $req->input('type')=="37")
+                    @include("Dashboard.forms.serum")
                 @endif
         </div>
     </div>

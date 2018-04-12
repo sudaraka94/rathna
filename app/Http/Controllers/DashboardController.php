@@ -13,6 +13,7 @@ use App\s_creatinine;
 use App\glucose;
 use App\ppbs;
 use App\u_culture;
+use App\serum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -231,11 +232,39 @@ class DashboardController extends Controller
                 $u_culture->ceftazidime=$request->input('ceftazidime');
                 $u_culture->cefoxitin=$request->input('cefoxitin');
                 $u_culture->cefuroxime=$request->input('cefuroxime');
-                $u_culture->gentamici=$request->input('gentamicin');
+                $u_culture->gentamicin=$request->input('gentamicin');
                 $u_culture->meropenem=$request->input('meropenem');
                 $u_culture->norfloxacin=$request->input('norfloxacin');
                 $u_culture->nitrofurantoin=$request->input('nitrofurantoin');
                 $u_culture->nalidixic=$request->input('nalidixic');
+
+                if(!$u_culture->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$u_culture);
+            }else if($request->input('type')==25 | $request->input('type')==26 | $request->input('type')==27 | $request->input('type')==28 | $request->input('type')==29 | $request->input('type')==30 | $request->input('type')==31 | $request->input('type')==32 | $request->input('type')==33 | $request->input('type')==34 | $request->input('type')==35 | $request->input('type')==36 | $request->input('type')==37){
+                $u_culture=new serum;
+                $u_culture->report_id=$report->id;
+                $u_culture->esr=$request->input('esr');
+                $u_culture->hiv=$request->input('hiv');
+                $u_culture->ion_r=$request->input('ion_r');
+                $u_culture->ion_remarks=$request->input('ion_remarks');
+                $u_culture->malaria=$request->input('malaria');
+                $u_culture->platelets=$request->input('platelets');
+                $u_culture->s_amylase=$request->input('s_amylase');
+                $u_culture->s_bilirubin=$request->input('s_bilirubin');
+                $u_culture->bil_remarks=$request->input('bil_remarks');
+                $u_culture->s_calcium=$request->input('s_calcium');
+                $u_culture->cal_remarks=$request->input('cal_remarks');
+                $u_culture->s_gamma=$request->input('s_gamma');
+                $u_culture->gam_remarks=$request->input('gam_remarks');
+                $u_culture->troponin=$request->input('troponin');
+                $u_culture->u_micro=$request->input('u_micro');
+                $u_culture->micro_remarks=$request->input('micro_remarks');
+                $u_culture->vdrl=$request->input('vdrl');
+                $u_culture->norfloxacin=$request->input('s_potassium');
+                $u_culture->nitrofurantoin=$request->input('pot_remarks');
 
                 if(!$u_culture->save()){
                     $report->delete();
@@ -442,6 +471,35 @@ class DashboardController extends Controller
                 $u_culture->norfloxacin=$request->input('norfloxacin');
                 $u_culture->nitrofurantoin=$request->input('nitrofurantoin');
                 $u_culture->nalidixic=$request->input('nalidixic');
+
+                if(!$u_culture->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$u_culture);
+            }else if($request->input('type')==25 | $request->input('type')==26 | $request->input('type')==27 | $request->input('type')==28 | $request->input('type')==29 | $request->input('type')==30 | $request->input('type')==31 | $request->input('type')==32 | $request->input('type')==33 | $request->input('type')==34 | $request->input('type')==35 | $request->input('type')==36 | $request->input('type')==37){
+                $u_culture=serum::where('report_id',$request->input('id'))->first();;
+                $u_culture->report_id=$report->id;
+                $u_culture->esr=$request->input('esr');
+                $u_culture->hiv=$request->input('hiv');
+                $u_culture->ion_r=$request->input('ion_r');
+                $u_culture->ion_remarks=$request->input('ion_remarks');
+                $u_culture->malaria=$request->input('malaria');
+                $u_culture->platelets=$request->input('platelets');
+                $u_culture->s_amylase=$request->input('s_amylase');
+                $u_culture->amy_remarks=$request->input('amy_remarks');
+                $u_culture->s_bilirubin=$request->input('s_bilirubin');
+                $u_culture->bil_remarks=$request->input('bil_remarks');
+                $u_culture->s_calcium=$request->input('s_calcium');
+                $u_culture->cal_remarks=$request->input('cal_remarks');
+                $u_culture->s_gamma=$request->input('s_gamma');
+                $u_culture->gam_remarks=$request->input('gam_remarks');
+                $u_culture->troponin=$request->input('troponin');
+                $u_culture->u_micro=$request->input('u_micro');
+                $u_culture->micro_remarks=$request->input('micro_remarks');
+                $u_culture->vdrl=$request->input('vdrl');
+                $u_culture->norfloxacin=$request->input('s_potassium');
+                $u_culture->nitrofurantoin=$request->input('pot_remarks');
 
                 if(!$u_culture->save()){
                     $report->delete();
