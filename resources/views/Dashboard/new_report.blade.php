@@ -58,6 +58,8 @@
                     @include("Dashboard.forms.glucose_concentration")
                 @elseif($req->input('type')=="20" | $req->input('type')=="21" | $req->input('type')=="22" | $req->input('type')=="23")
                     @include("Dashboard.forms.ppbs")
+                @elseif($req->input('type')=="24")
+                    @include("Dashboard.forms.u_culture")
                 @endif
         </div>
     </div>

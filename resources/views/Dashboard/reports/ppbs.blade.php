@@ -1,8 +1,3 @@
-@if($report->type=='16')
-    <div style="padding: 10px;font-weight: 800;">
-        -After 50g of Glucose -
-    </div>
-@endif
 <table class="weight table table-responsive">
     <tr style="height:70px;background-color: lightgrey;">
         <th style="font-weight: 500;">Description</th>

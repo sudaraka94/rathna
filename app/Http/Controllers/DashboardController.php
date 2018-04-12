@@ -12,6 +12,7 @@ use App\Report;
 use App\s_creatinine;
 use App\glucose;
 use App\ppbs;
+use App\u_culture;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -204,12 +205,43 @@ class DashboardController extends Controller
                 $ppbs->ppbs_p_breakfast=$request->input('ppbs_p_breakfast');
                 $ppbs->ppbs_p_lunch=$request->input('ppbs_p_lunch');
                 $ppbs->ppbs_p_dinner=$request->input('ppbs_p_dinner');
+                $ppbs->u_sugar=$request->input('u_sugar');
+                $ppbs->u_albumen=$request->input('u_albumen');
 
                 if(!$ppbs->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ppbs);
+            }else if($request->input('type')==24){
+                $u_culture=new u_culture;
+                $u_culture->report_id=$report->id;
+                $u_culture->p_cells=$request->input('p_cells');
+                $u_culture->r_cells=$request->input('r_cells');
+                $u_culture->e_cells=$request->input('e_cells');
+                $u_culture->c_report=$request->input('c_report');
+                $u_culture->b_count=$request->input('b_count');
+                $u_culture->a_test=$request->input('a_test');
+                $u_culture->augmentin=$request->input('augmentin');
+                $u_culture->ampicillin=$request->input('ampicillin');
+                $u_culture->amikacin=$request->input('amikacin');
+                $u_culture->amoxycilin=$request->input('amoxycilin');
+                $u_culture->ciprofloxacin=$request->input('ciprofloxacin');
+                $u_culture->cephalexin=$request->input('cephalexin');
+                $u_culture->ceftazidime=$request->input('ceftazidime');
+                $u_culture->cefoxitin=$request->input('cefoxitin');
+                $u_culture->cefuroxime=$request->input('cefuroxime');
+                $u_culture->gentamici=$request->input('gentamicin');
+                $u_culture->meropenem=$request->input('meropenem');
+                $u_culture->norfloxacin=$request->input('norfloxacin');
+                $u_culture->nitrofurantoin=$request->input('nitrofurantoin');
+                $u_culture->nalidixic=$request->input('nalidixic');
+
+                if(!$u_culture->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$u_culture);
             }
         }
     }
@@ -360,7 +392,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$lipidp);
             }else if($request->input('type')==16|$request->input('type')==17|$request->input('type')==18|$request->input('type')==19){
-                $glucose=glucose::where('report_id',$request->input('id'))->first();;
+                $glucose=glucose::where('report_id',$request->input('id'))->first();
                 $glucose->report_id=$report->id;
                 $glucose->f_b_sugar=$request->input('f_b_sugar');
                 $glucose->half_fasting_b_sugar=$request->input('half_fasting_b_sugar');
@@ -374,7 +406,7 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$glucose);
             }else if($request->input('type')==20|$request->input('type')==21|$request->input('type')==22|$request->input('type')==23){
-                $ppbs=ppbs::where('report_id',$request->input('id'))->first();;
+                $ppbs=ppbs::where('report_id',$request->input('id'))->first();
                 $ppbs->report_id=$report->id;
                 $ppbs->ppbs=$request->input('ppbs');
                 $ppbs->rbs=$request->input('rbs');
@@ -387,6 +419,35 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ppbs);
+            }else if($request->input('type')==24){
+                $u_culture=u_culture::where('report_id',$request->input('id'))->first();
+                $u_culture->report_id=$report->id;
+                $u_culture->p_cells=$request->input('p_cells');
+                $u_culture->r_cells=$request->input('r_cells');
+                $u_culture->e_cells=$request->input('e_cells');
+                $u_culture->c_report=$request->input('c_report');
+                $u_culture->b_count=$request->input('b_count');
+                $u_culture->a_test=$request->input('a_test');
+                $u_culture->augmentin=$request->input('augmentin');
+                $u_culture->ampicillin=$request->input('ampicillin');
+                $u_culture->amikacin=$request->input('amikacin');
+                $u_culture->amoxycilin=$request->input('amoxycilin');
+                $u_culture->ciprofloxacin=$request->input('ciprofloxacin');
+                $u_culture->cephalexin=$request->input('cephalexin');
+                $u_culture->ceftazidime=$request->input('ceftazidime');
+                $u_culture->cefoxitin=$request->input('cefoxitin');
+                $u_culture->cefuroxime=$request->input('cefuroxime');
+                $u_culture->gentamici=$request->input('gentamicin');
+                $u_culture->meropenem=$request->input('meropenem');
+                $u_culture->norfloxacin=$request->input('norfloxacin');
+                $u_culture->nitrofurantoin=$request->input('nitrofurantoin');
+                $u_culture->nalidixic=$request->input('nalidixic');
+
+                if(!$u_culture->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$u_culture);
             }
         }
     }

@@ -90,6 +90,9 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Urine Sugar & Urine Albumen'
         ]);
+        DB::table('type')->insert([
+            'type'=>'URINE FOR CULTURE AND ABST'
+        ]);
 
     }
 }

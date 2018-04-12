@@ -124,6 +124,8 @@
                         @include('Dashboard.reports.glucose_concentration')
                     @elseif($report->type=='20'|$report->type=='21'|$report->type=='22'|$report->type=='23')
                         @include('Dashboard.reports.ppbs')
+                    @elseif($report->type=='24')
+                        @include('Dashboard.reports.u_culture')
                     @endif
 
                 </div>

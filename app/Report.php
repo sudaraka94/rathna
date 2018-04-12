@@ -46,6 +46,8 @@ class Report extends Model
             return glucose::where('report_id',$this->id)->first();
         }else if($this->type=='20'|$this->type=='21'|$this->type=='22'|$this->type=='23'){
             return ppbs::where('report_id',$this->id)->first();
+        }else if($this->type=='24'){
+            return u_culture::where('report_id',$this->id)->first();
         }
     }
 

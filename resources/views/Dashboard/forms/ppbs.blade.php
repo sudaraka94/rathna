@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label for="u_albumen">Albumen</label>
-                <input type="text" @if($req_old->u_albumen)value={{$req_old->u_albumen}}@endif  name="albumen_set" class="form-control" id="u_albumen"  list="u_albumen">
+                <input type="text" @if($req_old->u_albumen)value={{$req_old->u_albumen}}@endif  name="u_albumen" list="albumen_set" class="form-control" id="u_albumen" >
                 <datalist id="albumen_set">
                     <option>nil</option>
                     <option>Trace</option>
