@@ -132,6 +132,44 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Serum Potassium'
         ]);
-
+        DB::table('type')->insert([
+            'type'=>'Blood Urea'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'E.S.R & F.B.S'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'E.S.R & R.B.S'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'E.S.R & Rh.Factor'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'F.B.S & Serum Creatinine'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'F.B.S & Total Cholesterol'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'F.B.S, Total Cholesterol & Triglycerides'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'H.b & F.B.S'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'H.b & P.P.B.S'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'H.b & R.B.S'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'S.G.O.T / A.S.T'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'S.G.P.T / A.L.T'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Total Cholesterol'
+        ]);
     }
 }

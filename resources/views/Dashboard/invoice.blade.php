@@ -153,6 +153,8 @@
                     @include('Dashboard.reports.u_culture')
                 @elseif($report->type=='25' | $report->type=='26' | $report->type=='27' | $report->type=='28' | $report->type=='29' | $report->type=='30' | $report->type=='31' | $report->type=='32' | $report->type=='33' | $report->type=='34' | $report->type=='35' | $report->type=='36' | $report->type=='37')
                     @include('Dashboard.reports.serum')
+                @elseif($report->type=='38' | $report->type=='39' | $report->type=='40' | $report->type=='41' | $report->type=='42' | $report->type=='43' | $report->type=='44' | $report->type=='45' | $report->type=='46' | $report->type=='47' | $report->type=='48' | $report->type=='49' | $report->type=='50')
+                    @include('Dashboard.reports.esr')
                 @endif
             </div>
             <!-- /.col -->
