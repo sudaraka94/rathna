@@ -52,6 +52,8 @@ class Report extends Model
             return serum::where('report_id',$this->id)->first();
         }else if($this->type=='38' | $this->type=='39' | $this->type=='40' | $this->type=='41' | $this->type=='42' | $this->type=='43' | $this->type=='44' | $this->type=='45' | $this->type=='33' | $this->type=='34' | $this->type=='35' | $this->type=='36' | $this->type=='37'){
             return esr::where('report_id',$this->id)->first();
+        }else if($this->type=='51' | $this->type=='52' | $this->type=='53' | $this->type=='54'){
+            return hb::where('report_id',$this->id)->first();
         }
     }
 

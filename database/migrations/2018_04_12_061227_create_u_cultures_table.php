@@ -13,7 +13,7 @@ class CreateUCulturesTable extends Migration
     public function up()
     {
         Schema::create('u_cultures', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('report_id');
             $table->timestamps();
             $table->string('p_cells')->nullable();
             $table->string('r_cells')->nullable();

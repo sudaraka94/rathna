@@ -62,6 +62,10 @@
                     @include("Dashboard.forms.u_culture")
                 @elseif($req->input('type')=="25"| $req->input('type')=="26"| $req->input('type')=="27"| $req->input('type')=="28"| $req->input('type')=="29"| $req->input('type')=="30"| $req->input('type')=="31"| $req->input('type')=="32"| $req->input('type')=="33"| $req->input('type')=="34"| $req->input('type')=="35"| $req->input('type')=="36"| $req->input('type')=="37")
                     @include("Dashboard.forms.serum")
+                @elseif($req->input('type')=="38"| $req->input('type')=="39"| $req->input('type')=="40"| $req->input('type')=="41"| $req->input('type')=="42"| $req->input('type')=="43"| $req->input('type')=="44"| $req->input('type')=="45"| $req->input('type')=="46"| $req->input('type')=="47"| $req->input('type')=="48"| $req->input('type')=="49"| $req->input('type')=="50")
+                    @include("Dashboard.forms.esr")
+                @elseif($req->input('type')=="51"| $req->input('type')=="52"| $req->input('type')=="53"| $req->input('type')=="54")
+                    @include("Dashboard.forms.hb")
                 @endif
         </div>
     </div>

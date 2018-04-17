@@ -130,6 +130,8 @@
                         @include('Dashboard.reports.serum')
                     @elseif($report->type=='38' | $report->type=='39' | $report->type=='40' | $report->type=='41' | $report->type=='42' | $report->type=='43' | $report->type=='44' | $report->type=='45' | $report->type=='46' | $report->type=='47' | $report->type=='48' | $report->type=='49' | $report->type=='50')
                         @include('Dashboard.reports.esr')
+                    @elseif($report->type=='51' | $report->type=='52' | $report->type=='53' | $report->type=='54')
+                        @include('Dashboard.reports.hb')
                     @endif
 
                 </div>

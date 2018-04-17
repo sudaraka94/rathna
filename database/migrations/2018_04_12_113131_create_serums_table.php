@@ -13,7 +13,7 @@ class CreateSerumsTable extends Migration
     public function up()
     {
         Schema::create('serums', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('report_id');
             $table->timestamps();
             $table->string('esr')->nullable();
             $table->string('hiv')->nullable();

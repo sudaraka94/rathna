@@ -171,5 +171,17 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Total Cholesterol'
         ]);
+        DB::table('type')->insert([
+            'type'=>'Haemoglobin'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Haemoglobin & E.S.R'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Haemoglobin & W.B.C'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Haemoglobin, W.B.C & E.S.R'
+        ]);
     }
 }

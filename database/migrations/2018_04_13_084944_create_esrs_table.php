@@ -13,7 +13,7 @@ class CreateEsrsTable extends Migration
     public function up()
     {
         Schema::create('esrs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('report_id');
             $table->timestamps();
             $table->string('b_uria')->nullable();
             $table->string('esr')->nullable();

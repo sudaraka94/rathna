@@ -15,6 +15,7 @@ use App\ppbs;
 use App\u_culture;
 use App\serum;
 use App\esr;
+use App\hb;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -295,6 +296,25 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$esr);
+            }else if($request->input('type')==51 | $request->input('type')==52 | $request->input('type')==53 | $request->input('type')==54 ){
+                $hb=new hb;
+                $hb->report_id=$report->id;
+                $hb->hb=$request->input('hb');
+                $hb->wbc=$request->input('wbc');
+                $hb->poly=$request->input('poly');
+                $hb->lym=$request->input('lym');
+                $hb->eso=$request->input('eso');
+                $hb->bas=$request->input('bas');
+                $hb->mon=$request->input('mon');
+                $hb->malaria=$request->input('malaria');
+                $hb->platelets=$request->input('platelets');
+                $hb->remarks=$request->input('remarks');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }
         }
     }
@@ -553,6 +573,25 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$esr);
+            }else if($request->input('type')==51 | $request->input('type')==52 | $request->input('type')==53 | $request->input('type')==54 ){
+                $hb=hb::where('report_id',$request->input('id'))->first();
+                $hb->report_id=$report->id;
+                $hb->hb=$request->input('hb');
+                $hb->wbc=$request->input('wbc');
+                $hb->poly=$request->input('poly');
+                $hb->lym=$request->input('lym');
+                $hb->eso=$request->input('eso');
+                $hb->bas=$request->input('bas');
+                $hb->mon=$request->input('mon');
+                $hb->malaria=$request->input('malaria');
+                $hb->platelets=$request->input('platelets');
+                $hb->remarks=$request->input('remarks');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }
         }
     }
