@@ -132,6 +132,8 @@
                         @include('Dashboard.reports.esr')
                     @elseif($report->type=='51' | $report->type=='52' | $report->type=='53' | $report->type=='54')
                         @include('Dashboard.reports.hb')
+                    @elseif($report->type=='51' | $report->type=='55' | $report->type=='56' | $report->type=='57'| $report->type=='58' | $report->type=='59' | $report->type=='60' | $report->type=='61' | $report->type=='62')
+                        @include('Dashboard.reports.misc')
                     @endif
 
                 </div>

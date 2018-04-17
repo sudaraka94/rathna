@@ -183,5 +183,29 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Haemoglobin, W.B.C & E.S.R'
         ]);
+        DB::table('type')->insert([
+            'type'=>'B.T. & C.T'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'C - Reactive Protein'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Electrolytes'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'FILARIAL ANTIBODY TEST'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Glyco - Haemoglobin'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Pcv & Platelets'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'PT-INR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Platelets'
+        ]);
     }
 }

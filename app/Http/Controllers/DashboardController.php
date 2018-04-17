@@ -7,6 +7,7 @@ use App\fbs;
 use App\blood_group;
 use App\hcg;
 use App\lipidp;
+use App\misc;
 use App\ufr;
 use App\Report;
 use App\s_creatinine;
@@ -315,6 +316,39 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
+                $hb=new misc;
+                $hb->report_id=$report->id;
+                $hb->bt=$request->input('bt');
+                $hb->ct=$request->input('ct');
+                $hb->crp=$request->input('crp');
+                $hb->sodium=$request->input('sodium');
+                $hb->potassium=$request->input('potassium');
+                $hb->chloride=$request->input('chloride');
+                $hb->fil_m=$request->input('fil_m');
+                $hb->fil_g=$request->input('fil_g');
+                $hb->g_hb=$request->input('g_hb');
+                $hb->g_hb_r=$request->input('g_hb_r');
+                $hb->pcv=$request->input('pcv');
+                $hb->platelets=$request->input('platelets');
+                $hb->p_time=$request->input('p_time');
+                $hb->p_time_r=$request->input('p_time_r');
+                $hb->n_control=$request->input('n_control');
+                $hb->n_control_r=$request->input('n_control_r');
+                $hb->inr=$request->input('inr');
+                $hb->p_time=$request->input('p_time');
+                $hb->p_time_r=$request->input('p_time_r');
+                $hb->n_control=$request->input('n_control');
+                $hb->n_control_r=$request->input('n_control_r');
+                $hb->stp=$request->input('stp');
+                $hb->globulin=$request->input('globulin');
+                $hb->agr=$request->input('agr');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }
         }
     }
@@ -586,6 +620,39 @@ class DashboardController extends Controller
                 $hb->malaria=$request->input('malaria');
                 $hb->platelets=$request->input('platelets');
                 $hb->remarks=$request->input('remarks');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
+                $hb=misc::where('report_id',$request->input('id'))->first();
+                $hb->report_id=$report->id;
+                $hb->bt=$request->input('bt');
+                $hb->ct=$request->input('ct');
+                $hb->crp=$request->input('crp');
+                $hb->sodium=$request->input('sodium');
+                $hb->potassium=$request->input('potassium');
+                $hb->chloride=$request->input('chloride');
+                $hb->fil_m=$request->input('fil_m');
+                $hb->fil_g=$request->input('fil_g');
+                $hb->g_hb=$request->input('g_hb');
+                $hb->g_hb_r=$request->input('g_hb_r');
+                $hb->pcv=$request->input('pcv');
+                $hb->platelets=$request->input('platelets');
+                $hb->p_time=$request->input('p_time');
+                $hb->p_time_r=$request->input('p_time_r');
+                $hb->n_control=$request->input('n_control');
+                $hb->n_control_r=$request->input('n_control_r');
+                $hb->inr=$request->input('inr');
+                $hb->p_time=$request->input('p_time');
+                $hb->p_time_r=$request->input('p_time_r');
+                $hb->n_control=$request->input('n_control');
+                $hb->n_control_r=$request->input('n_control_r');
+                $hb->stp=$request->input('stp');
+                $hb->globulin=$request->input('globulin');
+                $hb->agr=$request->input('agr');
 
                 if(!$hb->save()){
                     $report->delete();
