@@ -56,6 +56,8 @@ class Report extends Model
             return hb::where('report_id',$this->id)->first();
         }else if($this->type=='55' | $this->type=='56' | $this->type=='57' | $this->type=='58' | $this->type=='59' | $this->type=='60' | $this->type=='61' | $this->type=='62'){
             return misc::where('report_id',$this->id)->first();
+        }else if($this->type=='63' | $this->type=='64' | $this->type=='65' | $this->type=='66'){
+            return ufr_plus::where('report_id',$this->id)->first();
         }
     }
 

@@ -17,6 +17,7 @@ use App\u_culture;
 use App\serum;
 use App\esr;
 use App\hb;
+use App\ufr_plus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -349,6 +350,32 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
+                $hb=new ufr_plus;
+                $hb->report_id=$report->id;
+                $hb->fbs=$request->input('fbs');
+                $hb->hb=$request->input('hb');
+                $hb->ppbs=$request->input('ppbs');
+                $hb->rbs=$request->input('rbs');
+                $hb->appearance=$request->input('appearance');
+                $hb->reaction=$request->input('reaction');
+                $hb->albumen=$request->input('albumen');
+                $hb->sugar=$request->input('sugar');
+                $hb->acetone=$request->input('acetone');
+                $hb->bile=$request->input('bile');
+                $hb->urobilino=$request->input('urobilino');
+                $hb->u_pus=$request->input('u_pus');
+                $hb->u_rbc=$request->input('u_rbc');
+                $hb->fpi=$request->input('fpi');
+                $hb->cast=$request->input('cast');
+                $hb->o_deposit=$request->input('o_deposit');
+                $hb->crystals=$request->input('crystals');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }
         }
     }
@@ -653,6 +680,32 @@ class DashboardController extends Controller
                 $hb->stp=$request->input('stp');
                 $hb->globulin=$request->input('globulin');
                 $hb->agr=$request->input('agr');
+
+                if(!$hb->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
+                $hb=ufr_plus::where('report_id',$request->input('id'))->first();
+                $hb->report_id=$report->id;
+                $hb->fbs=$request->input('fbs');
+                $hb->hb=$request->input('hb');
+                $hb->ppbs=$request->input('ppbs');
+                $hb->rbs=$request->input('rbs');
+                $hb->appearance=$request->input('appearance');
+                $hb->reaction=$request->input('reaction');
+                $hb->albumen=$request->input('albumen');
+                $hb->sugar=$request->input('sugar');
+                $hb->acetone=$request->input('acetone');
+                $hb->bile=$request->input('bile');
+                $hb->urobilino=$request->input('urobilino');
+                $hb->u_pus=$request->input('u_pus');
+                $hb->u_rbc=$request->input('u_rbc');
+                $hb->fpi=$request->input('fpi');
+                $hb->cast=$request->input('cast');
+                $hb->o_deposit=$request->input('o_deposit');
+                $hb->crystals=$request->input('crystals');
 
                 if(!$hb->save()){
                     $report->delete();

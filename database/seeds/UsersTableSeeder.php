@@ -207,5 +207,17 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'Platelets'
         ]);
+        DB::table('type')->insert([
+            'type'=>'FBS & UFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Hb & UFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'PPBS & UFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'RBS & UFR'
+        ]);
     }
 }

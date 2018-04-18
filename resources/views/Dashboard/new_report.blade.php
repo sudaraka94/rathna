@@ -68,6 +68,8 @@
                     @include("Dashboard.forms.hb")
                 @elseif($req->input('type')=="55"| $req->input('type')=="56"| $req->input('type')=="57"| $req->input('type')=="58" | $req->input('type')=="59" | $req->input('type')=="60" | $req->input('type')=="61" | $req->input('type')=="62")
                     @include("Dashboard.forms.misc")
+                @elseif($req->input('type')=="63"| $req->input('type')=="64"| $req->input('type')=="65"| $req->input('type')=="66")
+                    @include("Dashboard.forms.ufr_plus")
                 @endif
         </div>
     </div>

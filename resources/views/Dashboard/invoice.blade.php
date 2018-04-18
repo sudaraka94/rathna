@@ -159,6 +159,8 @@
                     @include('Dashboard.reports.hb')
                 @elseif($report->type=='51' | $report->type=='55' | $report->type=='56' | $report->type=='57'| $report->type=='58' | $report->type=='59' | $report->type=='60' | $report->type=='61' | $report->type=='62')
                     @include('Dashboard.reports.misc')
+                @elseif($report->type=='63' | $report->type=='64' | $report->type=='65' | $report->type=='66' )
+                    @include('Dashboard.reports.ufr_plus')
                 @endif
             </div>
             <!-- /.col -->
