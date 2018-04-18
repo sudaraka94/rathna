@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bsst;
+use App\d_col;
 use App\fbs;
 use App\blood_group;
 use App\hcg;
@@ -318,64 +319,112 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
-                $hb=new misc;
-                $hb->report_id=$report->id;
-                $hb->bt=$request->input('bt');
-                $hb->ct=$request->input('ct');
-                $hb->crp=$request->input('crp');
-                $hb->sodium=$request->input('sodium');
-                $hb->potassium=$request->input('potassium');
-                $hb->chloride=$request->input('chloride');
-                $hb->fil_m=$request->input('fil_m');
-                $hb->fil_g=$request->input('fil_g');
-                $hb->g_hb=$request->input('g_hb');
-                $hb->g_hb_r=$request->input('g_hb_r');
-                $hb->pcv=$request->input('pcv');
-                $hb->platelets=$request->input('platelets');
-                $hb->p_time=$request->input('p_time');
-                $hb->p_time_r=$request->input('p_time_r');
-                $hb->n_control=$request->input('n_control');
-                $hb->n_control_r=$request->input('n_control_r');
-                $hb->inr=$request->input('inr');
-                $hb->p_time=$request->input('p_time');
-                $hb->p_time_r=$request->input('p_time_r');
-                $hb->n_control=$request->input('n_control');
-                $hb->n_control_r=$request->input('n_control_r');
-                $hb->stp=$request->input('stp');
-                $hb->globulin=$request->input('globulin');
-                $hb->agr=$request->input('agr');
+                $misc=new misc;
+                $misc->report_id=$report->id;
+                $misc->bt=$request->input('bt');
+                $misc->ct=$request->input('ct');
+                $misc->crp=$request->input('crp');
+                $misc->sodium=$request->input('sodium');
+                $misc->potassium=$request->input('potassium');
+                $misc->chloride=$request->input('chloride');
+                $misc->fil_m=$request->input('fil_m');
+                $misc->fil_g=$request->input('fil_g');
+                $misc->g_hb=$request->input('g_hb');
+                $misc->g_hb_r=$request->input('g_hb_r');
+                $misc->pcv=$request->input('pcv');
+                $misc->platelets=$request->input('platelets');
+                $misc->p_time=$request->input('p_time');
+                $misc->p_time_r=$request->input('p_time_r');
+                $misc->n_control=$request->input('n_control');
+                $misc->n_control_r=$request->input('n_control_r');
+                $misc->inr=$request->input('inr');
+                $misc->p_time=$request->input('p_time');
+                $misc->p_time_r=$request->input('p_time_r');
+                $misc->n_control=$request->input('n_control');
+                $misc->n_control_r=$request->input('n_control_r');
+                $misc->stp=$request->input('stp');
+                $misc->globulin=$request->input('globulin');
+                $misc->agr=$request->input('agr');
 
-                if(!$hb->save()){
+                if(!$misc->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
-                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
-            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
-                $hb=new ufr_plus;
-                $hb->report_id=$report->id;
-                $hb->fbs=$request->input('fbs');
-                $hb->hb=$request->input('hb');
-                $hb->ppbs=$request->input('ppbs');
-                $hb->rbs=$request->input('rbs');
-                $hb->appearance=$request->input('appearance');
-                $hb->reaction=$request->input('reaction');
-                $hb->albumen=$request->input('albumen');
-                $hb->sugar=$request->input('sugar');
-                $hb->acetone=$request->input('acetone');
-                $hb->bile=$request->input('bile');
-                $hb->urobilino=$request->input('urobilino');
-                $hb->u_pus=$request->input('u_pus');
-                $hb->u_rbc=$request->input('u_rbc');
-                $hb->fpi=$request->input('fpi');
-                $hb->cast=$request->input('cast');
-                $hb->o_deposit=$request->input('o_deposit');
-                $hb->crystals=$request->input('crystals');
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$misc);
+            }else if($request->input('type')==63 | $request->input('type')==64 | $request->input('type')==65 | $request->input('type')==66){
+                $ufr_plus=new ufr_plus;
+                $ufr_plus->report_id=$report->id;
+                $ufr_plus->fbs=$request->input('fbs');
+                $ufr_plus->hb=$request->input('hb');
+                $ufr_plus->ppbs=$request->input('ppbs');
+                $ufr_plus->rbs=$request->input('rbs');
+                $ufr_plus->appearance=$request->input('appearance');
+                $ufr_plus->reaction=$request->input('reaction');
+                $ufr_plus->albumen=$request->input('albumen');
+                $ufr_plus->sugar=$request->input('sugar');
+                $ufr_plus->acetone=$request->input('acetone');
+                $ufr_plus->bile=$request->input('bile');
+                $ufr_plus->urobilino=$request->input('urobilino');
+                $ufr_plus->u_pus=$request->input('u_pus');
+                $ufr_plus->u_rbc=$request->input('u_rbc');
+                $ufr_plus->fpi=$request->input('fpi');
+                $ufr_plus->cast=$request->input('cast');
+                $ufr_plus->o_deposit=$request->input('o_deposit');
+                $ufr_plus->crystals=$request->input('crystals');
 
-                if(!$hb->save()){
+                if(!$ufr_plus->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
-                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ufr_plus);
+            }else if($request->input('type')==67 | $request->input('type')==68 | $request->input('type')==69 ){
+                $d_col=new d_col;
+                $d_col->report_id=$report->id;
+
+                $d_col->appearance=$request->input('appearance');
+                $d_col->sg=$request->input('sg');
+                $d_col->reaction=$request->input('reaction');
+                $d_col->albumen=$request->input('albumen');
+                $d_col->sugar=$request->input('sugar');
+                $d_col->sugar=$request->input('acetone');
+                $d_col->bile=$request->input('bile');
+                $d_col->urobilino=$request->input('urobilino');
+                $d_col->u_pus=$request->input('u_pus');
+                $d_col->u_rbc=$request->input('u_rbc');
+                $d_col->fpi=$request->input('fpi');
+                $d_col->cast=$request->input('cast');
+                $d_col->o_deposit=$request->input('o_deposit');
+                $d_col->crystals=$request->input('crystals');
+
+                $d_col->hwo=$request->input('hwo');
+                $d_col->rwo=$request->input('rwo');
+                $d_col->ameba=$request->input('ameba');
+                $d_col->cysts=$request->input('cysts');
+                $d_col->clc=$request->input('clc');
+                $d_col->s_pus=$request->input('s_pus');
+                $d_col->s_rbc=$request->input('s_rbc');
+                $d_col->mucus=$request->input('mucus');
+                $d_col->macrophags=$request->input('macrophags');
+                $d_col->consistens=$request->input('consistens');
+                $d_col->r_substances=$request->input('r_substances');
+
+                $d_col->hb=$request->input('hb');
+                $d_col->wbc=$request->input('wbc');
+                $d_col->poly=$request->input('poly');
+                $d_col->lym=$request->input('lym');
+                $d_col->eso=$request->input('eso');
+                $d_col->bas=$request->input('bas');
+                $d_col->mon=$request->input('mon');
+                $d_col->malaria=$request->input('malaria');
+                $d_col->platelets=$request->input('platelets');
+
+                $d_col->fbs=$request->input('fbs');
+
+                if(!$d_col->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_col);
             }
         }
     }
@@ -654,64 +703,112 @@ class DashboardController extends Controller
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
             }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
-                $hb=misc::where('report_id',$request->input('id'))->first();
-                $hb->report_id=$report->id;
-                $hb->bt=$request->input('bt');
-                $hb->ct=$request->input('ct');
-                $hb->crp=$request->input('crp');
-                $hb->sodium=$request->input('sodium');
-                $hb->potassium=$request->input('potassium');
-                $hb->chloride=$request->input('chloride');
-                $hb->fil_m=$request->input('fil_m');
-                $hb->fil_g=$request->input('fil_g');
-                $hb->g_hb=$request->input('g_hb');
-                $hb->g_hb_r=$request->input('g_hb_r');
-                $hb->pcv=$request->input('pcv');
-                $hb->platelets=$request->input('platelets');
-                $hb->p_time=$request->input('p_time');
-                $hb->p_time_r=$request->input('p_time_r');
-                $hb->n_control=$request->input('n_control');
-                $hb->n_control_r=$request->input('n_control_r');
-                $hb->inr=$request->input('inr');
-                $hb->p_time=$request->input('p_time');
-                $hb->p_time_r=$request->input('p_time_r');
-                $hb->n_control=$request->input('n_control');
-                $hb->n_control_r=$request->input('n_control_r');
-                $hb->stp=$request->input('stp');
-                $hb->globulin=$request->input('globulin');
-                $hb->agr=$request->input('agr');
+                $misc=misc::where('report_id',$request->input('id'))->first();
+                $misc->report_id=$report->id;
+                $misc->bt=$request->input('bt');
+                $misc->ct=$request->input('ct');
+                $misc->crp=$request->input('crp');
+                $misc->sodium=$request->input('sodium');
+                $misc->potassium=$request->input('potassium');
+                $misc->chloride=$request->input('chloride');
+                $misc->fil_m=$request->input('fil_m');
+                $misc->fil_g=$request->input('fil_g');
+                $misc->g_hb=$request->input('g_hb');
+                $misc->g_hb_r=$request->input('g_hb_r');
+                $misc->pcv=$request->input('pcv');
+                $misc->platelets=$request->input('platelets');
+                $misc->p_time=$request->input('p_time');
+                $misc->p_time_r=$request->input('p_time_r');
+                $misc->n_control=$request->input('n_control');
+                $misc->n_control_r=$request->input('n_control_r');
+                $misc->inr=$request->input('inr');
+                $misc->p_time=$request->input('p_time');
+                $misc->p_time_r=$request->input('p_time_r');
+                $misc->n_control=$request->input('n_control');
+                $misc->n_control_r=$request->input('n_control_r');
+                $misc->stp=$request->input('stp');
+                $misc->globulin=$request->input('globulin');
+                $misc->agr=$request->input('agr');
 
-                if(!$hb->save()){
+                if(!$misc->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
-                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
-            }else if($request->input('type')==55 | $request->input('type')==56 | $request->input('type')==57 | $request->input('type')==58| $request->input('type')==59| $request->input('type')==60| $request->input('type')==61| $request->input('type')==62){
-                $hb=ufr_plus::where('report_id',$request->input('id'))->first();
-                $hb->report_id=$report->id;
-                $hb->fbs=$request->input('fbs');
-                $hb->hb=$request->input('hb');
-                $hb->ppbs=$request->input('ppbs');
-                $hb->rbs=$request->input('rbs');
-                $hb->appearance=$request->input('appearance');
-                $hb->reaction=$request->input('reaction');
-                $hb->albumen=$request->input('albumen');
-                $hb->sugar=$request->input('sugar');
-                $hb->acetone=$request->input('acetone');
-                $hb->bile=$request->input('bile');
-                $hb->urobilino=$request->input('urobilino');
-                $hb->u_pus=$request->input('u_pus');
-                $hb->u_rbc=$request->input('u_rbc');
-                $hb->fpi=$request->input('fpi');
-                $hb->cast=$request->input('cast');
-                $hb->o_deposit=$request->input('o_deposit');
-                $hb->crystals=$request->input('crystals');
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$misc);
+            }else if($request->input('type')==63 | $request->input('type')==64 | $request->input('type')==65 | $request->input('type')==66){
+                $ufr_plus=ufr_plus::where('report_id',$request->input('id'))->first();
+                $ufr_plus->report_id=$report->id;
+                $ufr_plus->fbs=$request->input('fbs');
+                $ufr_plus->hb=$request->input('hb');
+                $ufr_plus->ppbs=$request->input('ppbs');
+                $ufr_plus->rbs=$request->input('rbs');
+                $ufr_plus->appearance=$request->input('appearance');
+                $ufr_plus->reaction=$request->input('reaction');
+                $ufr_plus->albumen=$request->input('albumen');
+                $ufr_plus->sugar=$request->input('sugar');
+                $ufr_plus->acetone=$request->input('acetone');
+                $ufr_plus->bile=$request->input('bile');
+                $ufr_plus->urobilino=$request->input('urobilino');
+                $ufr_plus->u_pus=$request->input('u_pus');
+                $ufr_plus->u_rbc=$request->input('u_rbc');
+                $ufr_plus->fpi=$request->input('fpi');
+                $ufr_plus->cast=$request->input('cast');
+                $ufr_plus->o_deposit=$request->input('o_deposit');
+                $ufr_plus->crystals=$request->input('crystals');
 
-                if(!$hb->save()){
+                if(!$ufr_plus->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
-                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$hb);
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$ufr_plus);
+            }else if($request->input('type')==67 | $request->input('type')==68 | $request->input('type')==69 ){
+                $d_col=d_col::where('report_id',$request->input('id'))->first();
+                $d_col->report_id=$report->id;
+
+                $d_col->appearance=$request->input('appearance');
+                $d_col->sg=$request->input('sg');
+                $d_col->reaction=$request->input('reaction');
+                $d_col->albumen=$request->input('albumen');
+                $d_col->sugar=$request->input('sugar');
+                $d_col->sugar=$request->input('acetone');
+                $d_col->bile=$request->input('bile');
+                $d_col->urobilino=$request->input('urobilino');
+                $d_col->u_pus=$request->input('u_pus');
+                $d_col->u_rbc=$request->input('u_rbc');
+                $d_col->fpi=$request->input('fpi');
+                $d_col->cast=$request->input('cast');
+                $d_col->o_deposit=$request->input('o_deposit');
+                $d_col->crystals=$request->input('crystals');
+
+                $d_col->hwo=$request->input('hwo');
+                $d_col->rwo=$request->input('rwo');
+                $d_col->ameba=$request->input('ameba');
+                $d_col->cysts=$request->input('cysts');
+                $d_col->clc=$request->input('clc');
+                $d_col->s_pus=$request->input('s_pus');
+                $d_col->s_rbc=$request->input('s_rbc');
+                $d_col->mucus=$request->input('mucus');
+                $d_col->macrophags=$request->input('macrophags');
+                $d_col->consistens=$request->input('consistens');
+                $d_col->r_substances=$request->input('r_substances');
+
+                $d_col->hb=$request->input('hb');
+                $d_col->wbc=$request->input('wbc');
+                $d_col->poly=$request->input('poly');
+                $d_col->lym=$request->input('lym');
+                $d_col->eso=$request->input('eso');
+                $d_col->bas=$request->input('bas');
+                $d_col->mon=$request->input('mon');
+                $d_col->malaria=$request->input('malaria');
+                $d_col->platelets=$request->input('platelets');
+
+                $d_col->fbs=$request->input('fbs');
+
+                if(!$d_col->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_col);
             }
         }
     }
@@ -720,7 +817,7 @@ class DashboardController extends Controller
         $reports=Report::paginate(10);
         return view('Dashboard.browse')->with('user',Auth::user())->with('reports',$reports)->with('types',Type::all())->with('req',$request);
     }
-    
+
     public function detailed(Request $request){
         $reports=Report::paginate(10);
         return view('Dashboard.detailed')->with('user',Auth::user())->with('reports',$reports)->with('types',Type::all())->with('req',$request);

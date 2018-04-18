@@ -136,6 +136,8 @@
                         @include('Dashboard.reports.misc')
                     @elseif($report->type=='63' | $report->type=='64' | $report->type=='65' | $report->type=='66' )
                         @include('Dashboard.reports.ufr_plus')
+                    @elseif($report->type=='66' | $report->type=='67' | $report->type=='69')
+                        @include('Dashboard.reports.d_col')
                     @endif
 
                 </div>

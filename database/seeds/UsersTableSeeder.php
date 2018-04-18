@@ -219,5 +219,14 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'RBS & UFR'
         ]);
+        DB::table('type')->insert([
+            'type'=>'FBC & UFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'FBS, UFR & SFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'UFR & SFR'
+        ]);
     }
 }

@@ -102,9 +102,3 @@
         <td style="padding: 5px">{{$det->crystals}}</td>
     </tr>
 </table>
-
-
-
-<table>
-
-</table>

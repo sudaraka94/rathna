@@ -58,6 +58,8 @@ class Report extends Model
             return misc::where('report_id',$this->id)->first();
         }else if($this->type=='63' | $this->type=='64' | $this->type=='65' | $this->type=='66'){
             return ufr_plus::where('report_id',$this->id)->first();
+        }else if($this->type=='67' | $this->type=='68' | $this->type=='69' ){
+            return d_col::where('report_id',$this->id)->first();
         }
     }
 
