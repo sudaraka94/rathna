@@ -74,6 +74,8 @@
                     @include("Dashboard.forms.d_col")
                 @elseif($req->input('type')=="70"| $req->input('type')=="71"| $req->input('type')=="72"| $req->input('type')=="73"| $req->input('type')=="74"| $req->input('type')=="75")
                     @include("Dashboard.forms.d_by")
+                @elseif($req->input('type')=="76")
+                    @include("Dashboard.forms.sfa")
                 @endif
         </div>
     </div>

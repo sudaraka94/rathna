@@ -249,5 +249,8 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'TSH ( 3 rd Generation )'
         ]);
+        DB::table('type')->insert([
+            'type'=>'Seminal Fluid Analysis'
+        ]);
     }
 }

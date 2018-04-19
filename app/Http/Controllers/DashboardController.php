@@ -10,6 +10,7 @@ use App\blood_group;
 use App\hcg;
 use App\lipidp;
 use App\misc;
+use App\sfa;
 use App\ufr;
 use App\Report;
 use App\s_creatinine;
@@ -443,13 +444,37 @@ class DashboardController extends Controller
                 $d_by->sgot=$request->input('sgot');
                 $d_by->sgpt=$request->input('sgpt');
                 $d_by->tsh=$request->input('tsh');
-                $d_by->tsh=$request->input('tsh_rem');
+                $d_by->tsh_rem=$request->input('tsh_rem');
 
                 if(!$d_by->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_by);
+            }else if($request->input('type')==70 | $request->input('type')==71 | $request->input('type')==72 | $request->input('type')==73 | $request->input('type')==74 | $request->input('type')==75 ){
+                $sfa=new sfa;
+                $sfa->report_id=$report->id;
+
+                $sfa->qty=$request->input('qty');
+                $sfa->viscosity=$request->input('viscosity');
+                $sfa->slt=$request->input('slt');
+                $sfa->colour=$request->input('colour');
+                $sfa->reaction=$request->input('reaction');
+                $sfa->ph=$request->input('ph');
+                $sfa->micro=$request->input('micro');
+                $sfa->a_mot=$request->input('a_mot');
+                $sfa->s_mot=$request->input('s_mot');
+                $sfa->inactive=$request->input('inactive');
+                $sfa->count=$request->input('count');
+                $sfa->tas=$request->input('tas');
+                $sfa->pnc=$request->input('pnc');
+                $sfa->rbc=$request->input('rbc');
+
+                if(!$sfa->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$sfa);
             }
         }
     }
@@ -851,13 +876,37 @@ class DashboardController extends Controller
                 $d_by->sgot=$request->input('sgot');
                 $d_by->sgpt=$request->input('sgpt');
                 $d_by->tsh=$request->input('tsh');
-                $d_by->tsh=$request->input('tsh_rem');
+                $d_by->tsh_rem=$request->input('tsh_rem');
 
                 if(!$d_by->save()){
                     $report->delete();
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_by);
+            }else if($request->input('type')==70 | $request->input('type')==71 | $request->input('type')==72 | $request->input('type')==73 | $request->input('type')==74 | $request->input('type')==75 ){
+                $sfa=sfa::where('report_id',$request->input('id'))->first();
+                $sfa->report_id=$report->id;
+
+                $sfa->qty=$request->input('qty');
+                $sfa->viscosity=$request->input('viscosity');
+                $sfa->slt=$request->input('slt');
+                $sfa->colour=$request->input('colour');
+                $sfa->reaction=$request->input('reaction');
+                $sfa->ph=$request->input('ph');
+                $sfa->micro=$request->input('micro');
+                $sfa->a_mot=$request->input('a_mot');
+                $sfa->s_mot=$request->input('s_mot');
+                $sfa->inactive=$request->input('inactive');
+                $sfa->count=$request->input('count');
+                $sfa->tas=$request->input('tas');
+                $sfa->pnc=$request->input('pnc');
+                $sfa->rbc=$request->input('rbc');
+
+                if(!$sfa->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$sfa);
             }
         }
     }

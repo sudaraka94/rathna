@@ -140,6 +140,8 @@
                         @include('Dashboard.reports.d_col')
                     @elseif($report->type=='70' | $report->type=='71' | $report->type=='72' | $report->type=='73' | $report->type=='74' | $report->type=='75')
                         @include('Dashboard.reports.d_by')
+                    @elseif($report->type=='76')
+                        @include('Dashboard.reports.sfa')
                     @endif
 
                 </div>

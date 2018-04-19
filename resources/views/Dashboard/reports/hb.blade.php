@@ -1,83 +1,86 @@
 <table class="weight table table-responsive">
     <tr style="height: 70px;background-color: lightgrey;">
-        <th style="font-weight: 500;">Description</th>
-        <th style="font-weight: 500;">Result</th>
-        <th style="font-weight: 500;">Unit</th>
-        @if($report->type=='53'| $report->type=='54')
-            <th style="font-weight: 500;"></th>
-        @endif
-        @if($report->type=='51')
-            <th style="font-weight: 500;">Reference Range</th>
-        @endif
+        <th style="font-weight: 500;"></th>
+        <th style="font-weight: 500;"></th>
     </tr>
     <tr style="height: 70px;">
-        <td> Hb (Haemoglobin)</td>
-        <td>{{$det->hb}}</td>
-        <td>g/dl</td>
-        @if($report->type=='51')
-            <td>12.0 - 17.5</td>
-        @endif
+        <td><h4>Macroscopic Examination</h4></td>
+        <td></td>
     </tr>
-    @if($report->type=='53' | $report->type=='54')
-        <tr style="height: 70px;">
-            <td>W.B.C</td>
-            <td>{{$det->wbc}}</td>
-            <td>/mm<sup>3</sup></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td>DC</td>
-        </tr>
-        <tr style="height: 70px;">
-            <td><br><br>Poly</td>
-            <td>{{$det->poly}}%</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>{{$det->remarks}}</td>
-        </tr>
-        <tr style="height: 70px;">
-            <td><br><br>Lym</td>
-            <td>{{$det->lym}}%</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td><br><br>Eso</td>
-            <td>{{$det->eso}}%</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td><br><br>Bas</td>
-            <td>{{$det->bas}}</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td><br><br>Mon</td>
-            <td>{{$det->mon}}</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td>Pcv</td>
-            <td>{{$det->pcv}}</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td>Malaria Parasites</td>
-            <td>{{$det->malaria}}</td>
-            <td></td>
-        </tr>
-        <tr style="height: 70px;">
-            <td>Platelets</td>
-            <td>{{$det->platelets}}</td>
-            <td>/mm<sup>3</sup></td>
-        </tr>
-    @endif
-    @if($report->type=='52' | $report->type=='54')
-        <tr style="height: 70px;">
-            <td>E.S.R 1<sup>st</sup>hr</td>
-            <td>{{$det->esr}}</td>
-            <td>mm</td>
-        </tr>
-    @endif
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Quantity</td>
+        <td>:{{$det->quantity}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Viscosity</td>
+        <td>:{{$det->viscosity}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Self Liquefaction Time</td>
+        <td>:{{$det->slt}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Colour</td>
+        <td>:{{$det->colour}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Reaction</td>
+        <td>:{{$det->reaction}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;P.H.</td>
+        <td>:{{$det->ph}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>Microscopic Examination</td>
+        <td>:{{$det->micro}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td><h4>Motility</h4></td>
+        <td></td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Actively Motile</td>
+        <td>:{{$det->a_mot}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Slugglishly Motile</td>
+        <td>:{{$det->s_mot}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Inactive</td>
+        <td>:{{$det->inactive}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>Count</td>
+        <td>:{{$det->count}}x 10<sup>6</sup></td>
+    </tr>
+    <tr style="height: 70px;">
+        <td><h4>Mophological Examination</h4></td>
+        <td></td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>Stained Smear of Semen</td>
+        <td></td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Total Abnormal Sperms</td>
+        <td>:{{$det->tas}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Polymorpho Nuclear Cells</td>
+        <td>:{{$det->pnc}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td><h4>Others</h4></td>
+        <td></td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;R.B.C.</td>
+        <td>:{{$det->rbc}}</td>
+    </tr>
+    <tr style="height: 70px;">
+        <td>&nbsp;&nbsp;Globulus</td>
+        <td>:{{$det->globulus}}</td>
+    </tr>
 </table>

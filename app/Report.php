@@ -62,6 +62,8 @@ class Report extends Model
             return d_col::where('report_id',$this->id)->first();
         }else if($this->type=='70' | $this->type=='71' | $this->type=='72' | $this->type=='73' | $this->type=='74' | $this->type=='75' ){
             return d_by::where('report_id',$this->id)->first();
+        }else if($this->type=='76'){
+            return sfa::where('report_id',$this->id)->first();
         }
     }
 
