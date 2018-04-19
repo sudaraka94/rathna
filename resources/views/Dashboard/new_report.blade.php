@@ -72,6 +72,8 @@
                     @include("Dashboard.forms.ufr_plus")
                 @elseif($req->input('type')=="67"| $req->input('type')=="68"| $req->input('type')=="69")
                     @include("Dashboard.forms.d_col")
+                @elseif($req->input('type')=="70"| $req->input('type')=="71"| $req->input('type')=="72"| $req->input('type')=="73"| $req->input('type')=="74"| $req->input('type')=="75")
+                    @include("Dashboard.forms.d_by")
                 @endif
         </div>
     </div>

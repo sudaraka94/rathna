@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bsst;
+use App\d_by;
 use App\d_col;
 use App\fbs;
 use App\blood_group;
@@ -386,7 +387,7 @@ class DashboardController extends Controller
                 $d_col->reaction=$request->input('reaction');
                 $d_col->albumen=$request->input('albumen');
                 $d_col->sugar=$request->input('sugar');
-                $d_col->sugar=$request->input('acetone');
+                $d_col->acetone=$request->input('acetone');
                 $d_col->bile=$request->input('bile');
                 $d_col->urobilino=$request->input('urobilino');
                 $d_col->u_pus=$request->input('u_pus');
@@ -425,6 +426,30 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_col);
+            }else if($request->input('type')==70 | $request->input('type')==71 | $request->input('type')==72 | $request->input('type')==73 | $request->input('type')==74 | $request->input('type')==75 ){
+                $d_by=new d_by;
+                $d_by->report_id=$report->id;
+
+                $d_by->d_by=$request->input('d_by');
+                $d_by->asot=$request->input('asot');
+                $d_by->rh_fac=$request->input('rh_fac');
+                $d_by->sal_h=$request->input('sal_h');
+                $d_by->sal_o=$request->input('sal_o');
+                $d_by->sal_ah=$request->input('sal_ah');
+                $d_by->sal_bh=$request->input('sal_bh');
+                $d_by->sodium=$request->input('sodium');
+                $d_by->potassium=$request->input('potassium');
+                $d_by->chloride=$request->input('chloride');
+                $d_by->sgot=$request->input('sgot');
+                $d_by->sgpt=$request->input('sgpt');
+                $d_by->tsh=$request->input('tsh');
+                $d_by->tsh=$request->input('tsh_rem');
+
+                if(!$d_by->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_by);
             }
         }
     }
@@ -809,6 +834,30 @@ class DashboardController extends Controller
                     return $this->browse($request)->with('message','Error occured,task failed!');
                 }
                 return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_col);
+            }else if($request->input('type')==70 | $request->input('type')==71 | $request->input('type')==72 | $request->input('type')==73 | $request->input('type')==74 | $request->input('type')==75 ){
+                $d_by=d_by::where('report_id',$request->input('id'))->first();
+                $d_by->report_id=$report->id;
+
+                $d_by->d_by=$request->input('d_by');
+                $d_by->asot=$request->input('asot');
+                $d_by->rh_fac=$request->input('rh_fac');
+                $d_by->sal_h=$request->input('sal_h');
+                $d_by->sal_o=$request->input('sal_o');
+                $d_by->sal_ah=$request->input('sal_ah');
+                $d_by->sal_bh=$request->input('sal_bh');
+                $d_by->sodium=$request->input('sodium');
+                $d_by->potassium=$request->input('potassium');
+                $d_by->chloride=$request->input('chloride');
+                $d_by->sgot=$request->input('sgot');
+                $d_by->sgpt=$request->input('sgpt');
+                $d_by->tsh=$request->input('tsh');
+                $d_by->tsh=$request->input('tsh_rem');
+
+                if(!$d_by->save()){
+                    $report->delete();
+                    return $this->browse($request)->with('message','Error occured,task failed!');
+                }
+                return view('Dashboard.invoice')->with('user',Auth::user())->with('report',$report)->with('det',$d_by);
             }
         }
     }

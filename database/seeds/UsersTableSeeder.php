@@ -228,5 +228,26 @@ class UsersTableSeeder extends Seeder
         DB::table('type')->insert([
             'type'=>'UFR & SFR'
         ]);
+        DB::table('type')->insert([
+            'type'=>'UFR & SFR'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Automated Clinical Chemistry Analyzer'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Rheumatoid Factor'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Standard Agglutination Test'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'Serum Electrolytes'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'S.G.O.T & S.G.P.T'
+        ]);
+        DB::table('type')->insert([
+            'type'=>'TSH ( 3 rd Generation )'
+        ]);
     }
 }
