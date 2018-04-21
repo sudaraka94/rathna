@@ -73,17 +73,25 @@
                 <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
-                    <a  data-toggle="modal" data-target="#modal" class="small-box bg-aqua">
+                    <div   class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>New</h3>
-
-                            <p>Report</p>
+                            <form  action="{{url('dashboard/reports/new')}}" method="get">
+                                <label for="sel1">Select a report type</label>
+                                <select class="form-control select2" name="type" id="sel1">
+                                @foreach($types as $type)
+                                        <option value="{{$type->type_id}}">{{$type->type}}</option>
+                                    @endforeach
+                                </select>
+                                {!! csrf_field() !!}
+                                <input type="submit" class="btn btn-primary" style="margin: 4px">
+                            </form>
+                            {{--<p>Report</p>--}}
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-compose"></i>
-                        </div>
+                        {{--<div class="icon">--}}
+                            {{--<i class="ion ion-compose"></i>--}}
+                        {{--</div>--}}
                         <div class="small-box-footer">Click to add a new report <i class="fa fa-arrow-circle-right"></i></div>
-                    </a>
+                    </div>
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
